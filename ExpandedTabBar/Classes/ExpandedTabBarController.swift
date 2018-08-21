@@ -56,7 +56,7 @@ open class ExpandedTabBarController: UITabBarController {
     private var triangleBottomConstraint: NSLayoutConstraint?
 
     private var parentViewWidthConstraint: NSLayoutConstraint?
-    
+
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { [weak self] _ in
@@ -74,9 +74,13 @@ open class ExpandedTabBarController: UITabBarController {
     }
 
     public func setup(viewControllers array: [UIViewController]) {
+        var maxNumberOfItem = 5
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            maxNumberOfItem = 8
+        }
         guard array.count > 5 else { return }
-        let itemsForShow = Array(array[0..<4])
-        moreViewControllers = Array(array[4..<array.count])
+        let itemsForShow = Array(array[0..<maxNumberOfItem - 1])
+        moreViewControllers = Array(array[maxNumberOfItem - 1..<array.count])
             .enumerated().map {
                 $1.restorationIdentifier = "\(kMoreTabVCAtIndex)\($0)"
                 return $1
