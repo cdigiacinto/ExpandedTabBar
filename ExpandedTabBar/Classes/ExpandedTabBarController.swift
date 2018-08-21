@@ -78,7 +78,7 @@ open class ExpandedTabBarController: UITabBarController {
         if UIDevice.current.userInterfaceIdiom == .pad {
             maxNumberOfItem = 8
         }
-        guard array.count > 5 else { return }
+        guard array.count > maxNumberOfItem else { return }
         let itemsForShow = Array(array[0..<maxNumberOfItem - 1])
         moreViewControllers = Array(array[maxNumberOfItem - 1..<array.count])
             .enumerated().map {
