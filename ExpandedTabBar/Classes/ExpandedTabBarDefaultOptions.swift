@@ -13,6 +13,7 @@ public struct ExpandedTabBarDefaultOptions {
     /// Background view options
     static let backgroundColor: UIColor = .black
     static let backgroundAlpha: CGFloat = 0.4
+    static let closeOnTap: Bool = true
 
     /// List's container options
     static let containerBackgroundColor: UIColor = .white
@@ -25,7 +26,7 @@ public struct ExpandedTabBarDefaultOptions {
     static let titleFont: UIFont = .systemFont(ofSize: 16)
     static let titleColor: UIColor = .black
     static let itemHeight: CGFloat = 35.0
-    static let imageContentMode: UIViewContentMode = .scaleAspectFit
+    static let imageContentMode: UIView.ContentMode = .scaleAspectFit
     static let spaceBetweenImageTitle: CGFloat = 8
 
 }
